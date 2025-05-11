@@ -4,3 +4,196 @@
 *:after {
   box-sizing: border-box;
 }
+
+#top-header {
+  display: flex;
+  justify-content: space-between; /* This pushes children to opposite sides */
+  align-items: center; /* Vertically centers the items */
+  padding: 1rem; /* Adds some spacing around the content */
+  background-color: #f8f8f8; /* Optional: adds a light background */
+  border-bottom: 1px solid #e1e1e1; /* Optional: adds a subtle bottom border */
+}
+
+.siteName a {
+  font-weight: bold; /* Makes CSE Motors bold */
+  text-decoration: none; /* Optional: removes underline */
+  color: #333; /* Dark gray color */
+  font-size: 1.2rem; /* Slightly larger text */
+}
+
+#tools a {
+  font-weight: normal; /* Ensures My Account isn't bold */
+  text-decoration: none; /* Optional: removes underline */
+  color: #666; /* Medium gray color */
+  padding: 0.5rem 1rem; /* Adds some clickable space around */
+  border: 1px solid #ddd; /* Optional: adds subtle border */
+  border-radius: 4px; /* Optional: rounds corners */
+}
+
+#tools a:hover {
+  background-color: #f0f0f0; /* Optional: hover effect */
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between; /* Distributes space between items */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+}
+
+nav ul li {
+  padding: 1rem 0; /* Vertical padding */
+  flex-grow: 0; /* Prevents stretching */
+  color: white;
+  text-align: center;
+  width: 100%; /* Ensures equal distribution */
+}
+
+nav ul li:hover {
+  background-color: #333;
+}
+
+.hero-section {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.hero-container {
+  position: relative;
+  margin-top: 1.5rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-image {
+  width: 80%;
+  height: auto;
+  display: block;
+}
+
+.hero-content {
+  position: absolute;
+  left: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: white; /* Semi-transparent dark background */
+  padding: 2rem;
+  max-width: 400px;
+  border-radius: 8px;
+  color: rgb(1, 65, 73);
+  text-align: left;
+}
+
+.hero-content h2 {
+  margin-top: 0;
+  font-size: 2rem;
+}
+
+.hero-content p {
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: #0abeeb;
+  color: rgb(17, 0, 0);
+  padding: 0.8rem 1.5rem;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #c1121f;
+}
+
+.features-section {
+  padding: 3rem 0;
+  background-color: #f8f9fa;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.feature-column {
+  flex: 1;
+  min-width: 300px;
+}
+
+.feature-column h2 {
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+/* Vehicle Grid Styles */
+.vehicle-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.vehicle-card {
+  background: rgb(47, 161, 226);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.vehicle-card:hover {
+  transform: translateY(-5px);
+}
+
+.vehicle-card img {
+  width: 90%;
+  height: 100px;
+  object-fit: cover;
+}
+
+.vehicle-card h3 {
+  padding: 1rem;
+  margin: 0;
+  text-align: center;
+  color: #2c3e50;
+}
+
+/* Benefits List Styles */
+.benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.benefits-list li {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #eee;
+  font-size: 1.1rem;
+  color: #34495e;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  
+  .vehicle-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .feature-column {
+    width: 80%;
+  }
+}
