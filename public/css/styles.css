@@ -5,6 +5,66 @@
   box-sizing: border-box;
 }
 
+/* Base Styles (Mobile First) */
+:root {
+  --primary-color: #1a4b84;
+  --secondary-color: #d4af37;
+  --accent-color: #c12c2c;
+  --light-color: #f5f5f5;
+  --dark-color: #333;
+  --text-color: #222;
+  --gray-light: #eaeaea;
+  --gray: #888;
+  --font-main: 'Roboto', Arial, sans-serif;
+  --font-heading: 'Montserrat', Georgia, serif;
+}
+
+body {
+  font-family: var(--font-main);
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+  background-image: none; /* No checkerboard on mobile */
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Checkerboard background for desktop */
+@media screen and (min-width: 1024px) {
+  body {
+    background-image: 
+      linear-gradient(45deg, #f0f0f0 25%, transparent 25%), 
+      linear-gradient(-45deg, #f0f0f0 25%, transparent 25%), 
+      linear-gradient(45deg, transparent 75%, #f0f0f0 75%), 
+      linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  }
+  
+  #wrapper {
+    background-color: white;
+    box-shadow: 0 0 15px rgba(91, 166, 185, 0.1);
+    margin: 2rem auto;
+    max-width: 1200px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+}
+
+/******* Change Box Model ***************/
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 #top-header {
   display: flex;
   justify-content: space-between; /* This pushes children to opposite sides */
@@ -24,7 +84,7 @@
 #tools a {
   font-weight: normal; /* Ensures My Account isn't bold */
   text-decoration: none; /* Optional: removes underline */
-  color: #666; /* Medium gray color */
+  color: #666666; /* Medium gray color */
   padding: 0.5rem 1rem; /* Adds some clickable space around */
   border: 1px solid #ddd; /* Optional: adds subtle border */
   border-radius: 4px; /* Optional: rounds corners */
@@ -183,17 +243,256 @@ nav ul li:hover {
   color: #34495e;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
+/* Services Section */
+.services {
+  padding: 3rem 0;
+  background-color: white;
+}
+
+.services h2 {
+  color: var(--primary-color);
+  text-align: center;
+  position: relative;
+  padding-bottom: 0.5rem;
+  font-family: var(--font-heading);
+}
+
+.services h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: var(--secondary-color);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.service-card {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: var(--light-color);
+  border-radius: 8px;
+}
+
+.service-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.service-card h3 {
+  color: var(--primary-color);
+  font-family: var(--font-heading);
+}
+
+.service-card p {
+  font-family: var(--font-main);
+}
+
+/* Testimonials Section */
+.testimonials {
+  padding: 3rem 0;
+  background-color: var(--light-color);
+}
+
+.testimonials h2 {
+  color: var(--primary-color);
+  text-align: center;
+  position: relative;
+  padding-bottom: 0.5rem;
+  font-family: var(--font-heading);
+}
+
+.testimonials h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: var(--secondary-color);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.testimonial-card {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.testimonial-text {
+  font-style: italic;
+  margin-bottom: 1rem;
+  font-family: var(--font-main);
+}
+
+.testimonial-author {
+  text-align: right;
+}
+
+.author-name {
+  font-weight: bold;
+  font-family: var(--font-main);
+}
+
+.author-title {
+  color: var(--gray);
+  font-size: 0.9rem;
+  font-family: var(--font-main);
+}
+
+/* Footer */
+footer {
+  background-color: var(--dark-color);
+  color: white;
+  padding: 2rem 0 1rem;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+  font-family: var(--font-heading);
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  font-family: var(--font-main);
+}
+
+.footer-section li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+  color: white;
+  text-decoration: none;
+  font-family: var(--font-main);
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid #555;
+  font-family: var(--font-main);
+}
+
+/* Media Queries for Larger Screens */
+@media screen and (min-width: 768px) {
+  .hero-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
   
-  .vehicle-grid {
-    grid-template-columns: 1fr;
+  .hero-content {
+    text-align: left;
+    max-width: 45%;
+  }
+  
+  .container-columns {
+    display: flex;
+    gap: 2rem;
   }
   
   .feature-column {
-    width: 80%;
+    flex: 1;
+  }
+  
+  .vehicle-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Navigation spacing for larger screens */
+  nav ul {
+    gap: 1rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .vehicle-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .services-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .footer-content {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .nav-toggle {
+    display: none;
+  }
+  
+  /* More navigation spacing for desktop */
+  nav ul {
+    gap: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .nav-toggle {
+    display: flex;
+  }
+  
+  nav ul {
+    flex-direction: column;
+    display: none;
+    gap: 0;
+  }
+  
+  nav ul.show {
+    display: flex;
+  }
+  
+  /* Header adjustments for mobile */
+  .header-container {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  #tools {
+    margin-left: 0;
   }
 }
